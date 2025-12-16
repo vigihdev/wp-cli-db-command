@@ -11,6 +11,7 @@ if (file_exists($autoloader)) {
     require_once $autoloader;
 }
 
+// Add commands
 WP_CLI::add_command('db:info', new Db_Info_Command());
 WP_CLI::add_command('db:export-data', new Export_Data_Db_Command());
 WP_CLI::add_command('db:export-structure', new Export_Structure_Db_Command());
