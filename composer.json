@@ -1,0 +1,60 @@
+{
+    "name": "vigihdev/wp-cli-db-command",
+    "description": "Command khusus untuk mengelola database WordPress (ekspor, impor, optimasi tabel, reset, atau pencarian/replace data) dengan sintaks yang lebih ringkas dari WP-CLI standar",
+    "homepage": "https://github.com/vigihdev/wp-cli-db-command",
+    "keywords": [
+        "wordpress",
+        "wp-cli",
+        "cli",
+        "database",
+        "commands",
+        "development"
+    ],
+    "type": "wp-cli-package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vigih Dev",
+            "email": "your-email@example.com",
+            "homepage": "https://github.com/vigihdev",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.id"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "vigihdev/wp-cli-models": "dev-main"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10.5.x-dev",
+        "symfony/dotenv": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vigihdev\\WpCliDbCommand\\": "src/"
+        },
+        "files": [
+            "db-command.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vigihdev\\WpCliDbCommand\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "process-timeout": 0
+    },
+    "scripts": {
+        "test": "phpunit",
+        "build": "console git:push && console satis:build && cd $HOME/.wp-cli/packages && console composer:update vigihdev/wp-cli-db-command && cd $HOME/WordpressCli/wp-cli-db-command",
+        "dev": "php -S localhost:3372 dev.php"
+    }
+}
